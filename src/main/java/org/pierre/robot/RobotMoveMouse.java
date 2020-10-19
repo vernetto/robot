@@ -2,6 +2,7 @@ package org.pierre.robot;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 
 public class RobotMoveMouse {
     public static void main(String[] args) throws AWTException {
@@ -13,6 +14,7 @@ public class RobotMoveMouse {
             robot.delay(60000);
             robot.delay(60000);
             robot.mouseWheel(-1);
+            System.out.println(new Date());
         }
     }
 }
