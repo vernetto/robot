@@ -5,16 +5,34 @@ import java.awt.event.KeyEvent;
 import java.util.Date;
 
 public class RobotMoveMouse {
+
+    public static final int MS = 60000;
+    public static final int NUMBEROFLOOPS = 5;
+    public static final int LOOPS = 2000000;
+    public static Robot robot ;
+
+
     public static void main(String[] args) throws AWTException {
-        Robot robot = new Robot();
-        for (int i = 0; i < 2000000; i++) {
-            robot.delay(60000);
-            robot.delay(60000);
+        robot = new Robot();
+        for (int i = 0; i < LOOPS; i++) {
+            waitFor(NUMBEROFLOOPS);
+            PointerInfo pi = MouseInfo.getPointerInfo();
+            //System.out.println(pi.getDevice().getIDstring());
+            //System.out.println(pi.getLocation());
+            if ("\\Display0".equals(pi.getDevice().getIDstring())) {
+                java.awt.Toolkit.getDefaultToolkit().beep();
+            }
             robot.mouseWheel(1);
-            robot.delay(60000);
-            robot.delay(60000);
+            waitFor(NUMBEROFLOOPS);
             robot.mouseWheel(-1);
             System.out.println(new Date());
         }
+    }
+
+    private static void waitFor(int numberOfLoops) {
+        for (int i = 0 ; i < numberOfLoops; i++) {
+            robot.delay(MS);
+        }
+
     }
 }
