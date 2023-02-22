@@ -1,0 +1,1 @@
+java -cp C:\Users\pierl\.m2\repository\org\pierre\robot\0.0.1-SNAPSHOT\robot-0.0.1-SNAPSHOT.jar org.pierre.robot.RobotMoveMouse 

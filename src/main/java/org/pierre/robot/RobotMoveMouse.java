@@ -6,13 +6,14 @@ import java.util.Date;
 
 public class RobotMoveMouse {
 
-    public static final int MS = 60000;
+    public static final int MS = 6000;
     public static final int NUMBEROFLOOPS = 2;
     public static final int LOOPS = 2000000;
     public static Robot robot ;
 
 
     public static void main(String[] args) throws AWTException {
+        //System.setProperty("java.awt.headless", "false");
         robot = new Robot();
         for (int i = 0; i < LOOPS; i++) {
             waitFor(NUMBEROFLOOPS);
