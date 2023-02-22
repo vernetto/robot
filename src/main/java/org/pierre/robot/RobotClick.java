@@ -10,9 +10,9 @@ public class RobotClick {
         Robot robot = new Robot();
         for (int i = 0; i < 2000; i++) {
             robot.delay(5000);
-            robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             robot.delay(1000);
-            robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
             System.out.println(new Date() + " click");
         }
     }
