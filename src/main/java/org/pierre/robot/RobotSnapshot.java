@@ -13,8 +13,13 @@ public class RobotSnapshot {
             robot.keyRelease(KeyEvent.VK_RIGHT);
             robot.delay(2000);
             System.out.println(new Date() + " printscreen");
+            //KeyEvent keyEvent = new KeyEvent();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_ALT);
             robot.keyPress(KeyEvent.VK_PRINTSCREEN);
             robot.keyRelease(KeyEvent.VK_PRINTSCREEN);
+            robot.keyRelease(KeyEvent.VK_ALT);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
         }
     }
 }
