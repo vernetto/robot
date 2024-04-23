@@ -6,14 +6,18 @@ import java.util.Date;
 
 public class RobotSnapshot {
     public static void main(String[] args) throws AWTException {
+        int count = 0;
         Robot robot = new Robot();
+        robot.delay(2000);
+
         for (int i = 0; i < 2000; i++) {
-            robot.delay(2000);
-            moveWithPageDown(robot);
-            robot.delay(2000);
-            System.out.println(new Date() + " printscreen");
-            //KeyEvent keyEvent = new KeyEvent();
             takeSnapshot(robot);
+            robot.delay(2000);
+            moveWithLeftArrow(robot);
+            //moveWithPageDown(robot);
+            robot.delay(2000);
+            System.out.println(new Date() + " printscreen "+ count++);
+            //KeyEvent keyEvent = new KeyEvent();
         }
     }
 
