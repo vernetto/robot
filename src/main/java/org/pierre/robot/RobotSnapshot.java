@@ -5,17 +5,21 @@ import java.awt.event.KeyEvent;
 import java.util.Date;
 
 public class RobotSnapshot {
+
+    public static final int NUMBEROFPAGES = 500;
+    public static final int DELAYPAGE = 5000;
+
     public static void main(String[] args) throws AWTException {
         int count = 0;
         Robot robot = new Robot();
-        robot.delay(2000);
+        robot.delay(DELAYPAGE);
 
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < NUMBEROFPAGES; i++) {
             takeSnapshot(robot);
-            robot.delay(2000);
-            moveWithLeftArrow(robot);
-            //moveWithPageDown(robot);
-            robot.delay(2000);
+            robot.delay(DELAYPAGE);
+            //moveWithRightArrow(robot);
+            moveWithPageDown(robot);
+            robot.delay(DELAYPAGE);
             System.out.println(new Date() + " printscreen "+ count++);
             //KeyEvent keyEvent = new KeyEvent();
         }
@@ -30,7 +34,7 @@ public class RobotSnapshot {
         robot.keyRelease(KeyEvent.VK_CONTROL);
     }
 
-    private static void moveWithLeftArrow(Robot robot) {
+    private static void moveWithRightArrow(Robot robot) {
         robot.keyPress(KeyEvent.VK_RIGHT);
         robot.keyRelease(KeyEvent.VK_RIGHT);
     }
