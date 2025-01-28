@@ -3,6 +3,8 @@ package org.pierre.robot;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.imageio.ImageIO;
 
 public class ScreenshotSaver {
@@ -10,7 +12,11 @@ public class ScreenshotSaver {
         try {
             Robot robot = new Robot();
             String format = "png";
-            String fileName = "screenshot." + format;
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+            String formattedDateTime = now.format(formatter);
+
+            String fileName = "screenshot_" + formattedDateTime + "." + format;
 
             Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
             BufferedImage screenCapture = robot.createScreenCapture(screenRect);
